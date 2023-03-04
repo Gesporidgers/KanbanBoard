@@ -115,13 +115,13 @@
             // saveTool
             // 
             this.saveTool.Name = "saveTool";
-            this.saveTool.Size = new System.Drawing.Size(180, 22);
+            this.saveTool.Size = new System.Drawing.Size(133, 22);
             this.saveTool.Text = "Сохранить";
             // 
             // clearTool
             // 
             this.clearTool.Name = "clearTool";
-            this.clearTool.Size = new System.Drawing.Size(180, 22);
+            this.clearTool.Size = new System.Drawing.Size(133, 22);
             this.clearTool.Text = "Очистить";
             this.clearTool.Click += new System.EventHandler(this.clearTool_Click);
             // 
@@ -236,6 +236,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuPlan.ResumeLayout(false);
