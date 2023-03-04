@@ -16,5 +16,16 @@ namespace KanbanBoard
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Planned.Items.Add("Task1");
+            Planned.Items.Add("Task2");
+        }
+
+        private void clearTool_Click(object sender, EventArgs e)
+        {
+            Planned.Items.Clear();
+        }
     }
 }
