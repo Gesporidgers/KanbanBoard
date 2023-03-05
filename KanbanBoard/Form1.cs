@@ -23,22 +23,30 @@ namespace KanbanBoard
         {
             FormAdd formAdd = new FormAdd();
             formAdd.ShowDialog();
+            string nm = formAdd.getName();
+            program.addTask(nm);
+            UpdAll();
         }
 
         private void clearTool_Click(object sender, EventArgs e)
         {
-            Planned.Items.Clear();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tasksF = program.GetTasks();
+            
             UpdAll();
         }
 
-        private void UpdAll()
+        public void UpdAll()
         {
-            foreach(KTask task in tasksF)
+            Planned.Items.Clear();
+            InProcess.Items.Clear();
+            Delayed.Items.Clear();
+            Done.Items.Clear();
+            tasksF = program.GetTasks();
+            foreach (KTask task in tasksF)
             {
                 switch (task.Status)
                 {
@@ -48,6 +56,18 @@ namespace KanbanBoard
                     case 3: Done.Items.Add(task.Name); break;
                 }
             }
+        }
+
+        private void toolInProc1_Click(object sender, EventArgs e)
+        {
+            int index = Planned.SelectedIndex;
+            program.makeInProc(index);
+            UpdAll();
+        }
+
+        private void saveTool_Click(object sender, EventArgs e)
+        {
+            program.saveAll();
         }
     }
 }

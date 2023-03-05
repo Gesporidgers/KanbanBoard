@@ -115,8 +115,9 @@
             // saveTool
             // 
             this.saveTool.Name = "saveTool";
-            this.saveTool.Size = new System.Drawing.Size(133, 22);
+            this.saveTool.Size = new System.Drawing.Size(180, 22);
             this.saveTool.Text = "Сохранить";
+            this.saveTool.Click += new System.EventHandler(this.saveTool_Click);
             // 
             // clearTool
             // 
@@ -166,8 +167,9 @@
             // 
             this.toolInProc1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolInProc1.Name = "toolInProc1";
-            this.toolInProc1.Size = new System.Drawing.Size(147, 22);
+            this.toolInProc1.Size = new System.Drawing.Size(180, 22);
             this.toolInProc1.Text = "Выполняется";
+            this.toolInProc1.Click += new System.EventHandler(this.toolInProc1_Click);
             // 
             // InProcess
             // 

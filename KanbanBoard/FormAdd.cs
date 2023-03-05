@@ -16,12 +16,17 @@ namespace KanbanBoard
         {
             InitializeComponent();
         }
-        Program program = new Program();
+        //Program program = new Program();
 
         private void buttonAddPL_Click(object sender, EventArgs e)
         {
-            program.addTask(richTextBox1.Text);
+            
             this.Close();
         }
+        public string getName()
+        {
+            return richTextBox1.Text;
+        }
+
     }
 }
