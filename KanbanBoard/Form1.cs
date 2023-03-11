@@ -61,13 +61,27 @@ namespace KanbanBoard
         private void toolInProc1_Click(object sender, EventArgs e)
         {
             int index = Planned.SelectedIndex;
-            program.makeInProc(index);
+            program.makeInProc(Planned.Items[index].ToString());
             UpdAll();
         }
 
         private void saveTool_Click(object sender, EventArgs e)
         {
             program.saveAll();
+        }
+
+        private void toolDone_Click(object sender, EventArgs e)
+        {
+            int index = InProcess.SelectedIndex;
+            program.makeDone(InProcess.Items[index].ToString());
+            UpdAll();
+        }
+
+        private void toolDelayed_Click(object sender, EventArgs e)
+        {
+            int index = InProcess.SelectedIndex;
+            program.makeDelayed(InProcess.Items[index].ToString());
+            UpdAll();
         }
     }
 }

@@ -48,8 +48,12 @@
             this.Done = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuInPrc = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolDone = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolDelayed = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuPlan.SuspendLayout();
+            this.contextMenuInPrc.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -115,7 +119,7 @@
             // saveTool
             // 
             this.saveTool.Name = "saveTool";
-            this.saveTool.Size = new System.Drawing.Size(180, 22);
+            this.saveTool.Size = new System.Drawing.Size(133, 22);
             this.saveTool.Text = "Сохранить";
             this.saveTool.Click += new System.EventHandler(this.saveTool_Click);
             // 
@@ -167,12 +171,13 @@
             // 
             this.toolInProc1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolInProc1.Name = "toolInProc1";
-            this.toolInProc1.Size = new System.Drawing.Size(180, 22);
+            this.toolInProc1.Size = new System.Drawing.Size(147, 22);
             this.toolInProc1.Text = "Выполняется";
             this.toolInProc1.Click += new System.EventHandler(this.toolInProc1_Click);
             // 
             // InProcess
             // 
+            this.InProcess.ContextMenuStrip = this.contextMenuInPrc;
             this.InProcess.FormattingEnabled = true;
             this.InProcess.Location = new System.Drawing.Point(211, 119);
             this.InProcess.Name = "InProcess";
@@ -219,6 +224,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // contextMenuInPrc
+            // 
+            this.contextMenuInPrc.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolDone,
+            this.toolDelayed});
+            this.contextMenuInPrc.Name = "contextMenuInPrc";
+            this.contextMenuInPrc.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuInPrc.Text = "Выполнено";
+            // 
+            // toolDone
+            // 
+            this.toolDone.Name = "toolDone";
+            this.toolDone.Size = new System.Drawing.Size(180, 22);
+            this.toolDone.Text = "Выполнено";
+            this.toolDone.Click += new System.EventHandler(this.toolDone_Click);
+            // 
+            // toolDelayed
+            // 
+            this.toolDelayed.Name = "toolDelayed";
+            this.toolDelayed.Size = new System.Drawing.Size(180, 22);
+            this.toolDelayed.Text = "Отложено";
+            this.toolDelayed.Click += new System.EventHandler(this.toolDelayed_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +270,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuPlan.ResumeLayout(false);
+            this.contextMenuInPrc.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,6 +296,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip contextMenuPlan;
         private System.Windows.Forms.ToolStripMenuItem toolInProc1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuInPrc;
+        private System.Windows.Forms.ToolStripMenuItem toolDone;
+        private System.Windows.Forms.ToolStripMenuItem toolDelayed;
     }
 }
 

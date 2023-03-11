@@ -12,7 +12,7 @@ namespace KanbanBoard
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
-        List<KTask> tasks = JsonSerializer.Deserialize<List<KTask>>(File.ReadAllText("board.json"));
+        public List<KTask> tasks = JsonSerializer.Deserialize<List<KTask>>(File.ReadAllText("board.json"));
         string json;
         [STAThread]
         static void Main()
@@ -45,9 +45,46 @@ namespace KanbanBoard
             
         }
 
-        public void makeInProc(int index)
+        public void makeInProc(string name)
         {
+            //KTask task = new KTask { Name = name, Status = 0 };
+
+            int index = 0;
+            foreach (KTask task in tasks)
+            {
+                if (task.Name == name) ;
+                else
+                    index++;
+            }
             tasks[index].Status = 1;
+            json = JsonSerializer.Serialize(tasks);
+            
+        }
+
+        public void makeDelayed(string name)
+        {
+            
+            int index = 0;
+            foreach (KTask task in tasks)
+            {
+                if (task.Name == name) ;
+                else
+                    index++;
+            }
+            tasks[index].Status= 2;
+            json = JsonSerializer.Serialize(tasks);
+        }
+
+        public void makeDone(string name)
+        {
+            int index = 0;
+            foreach (KTask task in tasks)
+            {
+                if (task.Name == name) ;
+                else
+                    index++;
+            }
+            tasks[index].Status = 3;
             json = JsonSerializer.Serialize(tasks);
         }
     }
