@@ -19,6 +19,7 @@ namespace KanbanBoard
         }
         Program program = new Program();
         List<KTask> tasksF = new List<KTask>();
+        bool changed = false;
         private void button1_Click(object sender, EventArgs e)
         {
             FormAdd formAdd = new FormAdd();
@@ -62,12 +63,14 @@ namespace KanbanBoard
         {
             int index = Planned.SelectedIndex;
             program.makeInProc(Planned.Items[index].ToString());
+            changed = true;
             UpdAll();
         }
 
         private void saveTool_Click(object sender, EventArgs e)
         {
             program.saveAll();
+            changed = false;
         }
 
         private void toolDone_Click(object sender, EventArgs e)
@@ -75,6 +78,7 @@ namespace KanbanBoard
             int index = InProcess.SelectedIndex;
             program.makeDone(InProcess.Items[index].ToString());
             UpdAll();
+            changed = true;
         }
 
         private void toolDelayed_Click(object sender, EventArgs e)
@@ -82,6 +86,17 @@ namespace KanbanBoard
             int index = InProcess.SelectedIndex;
             program.makeDelayed(InProcess.Items[index].ToString());
             UpdAll();
+            changed = true;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(changed)
+            {
+                DialogResult res = MessageBox.Show("Имеются несохраненные изменения, хотите ли их сохранить?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(res == DialogResult.Yes)
+                    program.saveAll();
+            }
         }
     }
 }

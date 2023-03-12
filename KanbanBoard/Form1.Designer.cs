@@ -44,13 +44,13 @@
             this.contextMenuPlan = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolInProc1 = new System.Windows.Forms.ToolStripMenuItem();
             this.InProcess = new System.Windows.Forms.ListBox();
+            this.contextMenuInPrc = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolDone = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolDelayed = new System.Windows.Forms.ToolStripMenuItem();
             this.Delayed = new System.Windows.Forms.ListBox();
             this.Done = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.contextMenuInPrc = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolDone = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolDelayed = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuPlan.SuspendLayout();
             this.contextMenuInPrc.SuspendLayout();
@@ -184,6 +184,29 @@
             this.InProcess.Size = new System.Drawing.Size(150, 303);
             this.InProcess.TabIndex = 7;
             // 
+            // contextMenuInPrc
+            // 
+            this.contextMenuInPrc.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolDone,
+            this.toolDelayed});
+            this.contextMenuInPrc.Name = "contextMenuInPrc";
+            this.contextMenuInPrc.Size = new System.Drawing.Size(139, 48);
+            this.contextMenuInPrc.Text = "Выполнено";
+            // 
+            // toolDone
+            // 
+            this.toolDone.Name = "toolDone";
+            this.toolDone.Size = new System.Drawing.Size(138, 22);
+            this.toolDone.Text = "Выполнено";
+            this.toolDone.Click += new System.EventHandler(this.toolDone_Click);
+            // 
+            // toolDelayed
+            // 
+            this.toolDelayed.Name = "toolDelayed";
+            this.toolDelayed.Size = new System.Drawing.Size(138, 22);
+            this.toolDelayed.Text = "Отложено";
+            this.toolDelayed.Click += new System.EventHandler(this.toolDelayed_Click);
+            // 
             // Delayed
             // 
             this.Delayed.FormattingEnabled = true;
@@ -224,29 +247,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // contextMenuInPrc
-            // 
-            this.contextMenuInPrc.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolDone,
-            this.toolDelayed});
-            this.contextMenuInPrc.Name = "contextMenuInPrc";
-            this.contextMenuInPrc.Size = new System.Drawing.Size(181, 70);
-            this.contextMenuInPrc.Text = "Выполнено";
-            // 
-            // toolDone
-            // 
-            this.toolDone.Name = "toolDone";
-            this.toolDone.Size = new System.Drawing.Size(180, 22);
-            this.toolDone.Text = "Выполнено";
-            this.toolDone.Click += new System.EventHandler(this.toolDone_Click);
-            // 
-            // toolDelayed
-            // 
-            this.toolDelayed.Name = "toolDelayed";
-            this.toolDelayed.Size = new System.Drawing.Size(180, 22);
-            this.toolDelayed.Text = "Отложено";
-            this.toolDelayed.Click += new System.EventHandler(this.toolDelayed_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +266,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

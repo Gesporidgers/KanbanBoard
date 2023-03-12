@@ -52,7 +52,8 @@ namespace KanbanBoard
             int index = 0;
             foreach (KTask task in tasks)
             {
-                if (task.Name == name) ;
+                if (task.Name == name) 
+                    break;
                 else
                     index++;
             }
