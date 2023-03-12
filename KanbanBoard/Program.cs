@@ -42,6 +42,13 @@ namespace KanbanBoard
             
         }
 
+        public void clearT()
+        {
+            tasks.Clear();
+            json = "[]";
+            File.WriteAllText("board.json",json);
+        }
+
         public void saveAll()
         {
             if (json != null)

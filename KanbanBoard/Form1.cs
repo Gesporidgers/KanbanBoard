@@ -32,7 +32,8 @@ namespace KanbanBoard
 
         private void clearTool_Click(object sender, EventArgs e)
         {
-            
+
+            UpdAll();
         }
 
         private void Form1_Load(object sender, EventArgs e)
