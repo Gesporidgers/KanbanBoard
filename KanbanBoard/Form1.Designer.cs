@@ -118,8 +118,9 @@
             // 
             // saveTool
             // 
+            this.saveTool.Enabled = false;
             this.saveTool.Name = "saveTool";
-            this.saveTool.Size = new System.Drawing.Size(133, 22);
+            this.saveTool.Size = new System.Drawing.Size(180, 22);
             this.saveTool.Text = "Сохранить";
             this.saveTool.Click += new System.EventHandler(this.saveTool_Click);
             // 

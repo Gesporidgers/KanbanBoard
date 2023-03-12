@@ -26,6 +26,7 @@ namespace KanbanBoard
             formAdd.ShowDialog();
             string nm = formAdd.getName();
             program.addTask(nm);
+            changed = true;
             UpdAll();
         }
 
@@ -36,7 +37,7 @@ namespace KanbanBoard
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            program.Load();
             UpdAll();
         }
 
@@ -57,6 +58,8 @@ namespace KanbanBoard
                     case 3: Done.Items.Add(task.Name); break;
                 }
             }
+            if (changed)
+                saveTool.Enabled = true;
         }
 
         private void toolInProc1_Click(object sender, EventArgs e)

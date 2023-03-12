@@ -12,7 +12,7 @@ namespace KanbanBoard
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
-        public List<KTask> tasks = JsonSerializer.Deserialize<List<KTask>>(File.ReadAllText("board.json"));
+        public List<KTask> tasks;
         string json;
         [STAThread]
         static void Main()
@@ -20,6 +20,19 @@ namespace KanbanBoard
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
+        }
+        public void Load()
+        {
+            try
+            {
+                tasks = JsonSerializer.Deserialize<List<KTask>>(File.ReadAllText("board.json"));
+            }
+            catch (FileNotFoundException)
+            {
+                File.WriteAllText("board.json", "[]");
+                tasks = JsonSerializer.Deserialize<List<KTask>>(File.ReadAllText("board.json"));
+            }
         }
         public void  addTask(string name)
         {
@@ -31,7 +44,10 @@ namespace KanbanBoard
 
         public void saveAll()
         {
-            File.WriteAllText("board.json", json);
+            if (json != null)
+                File.WriteAllText("board.json", json);
+            else
+                File.WriteAllText("board.json", "[]");
         }
 
         public List<KTask> GetTasks()
