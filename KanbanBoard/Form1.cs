@@ -102,5 +102,13 @@ namespace KanbanBoard
                     program.saveAll();
             }
         }
+
+        private void toolInPrcD_Click(object sender, EventArgs e)
+        {
+            int index = Delayed.SelectedIndex;
+            program.makeInProc(Delayed.Items[index].ToString());
+            changed = true;
+            UpdAll();
+        }
     }
 }

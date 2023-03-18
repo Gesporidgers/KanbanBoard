@@ -51,9 +51,12 @@
             this.Done = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuDelay = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolInPrcD = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuPlan.SuspendLayout();
             this.contextMenuInPrc.SuspendLayout();
+            this.contextMenuDelay.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -120,7 +123,7 @@
             // 
             this.saveTool.Enabled = false;
             this.saveTool.Name = "saveTool";
-            this.saveTool.Size = new System.Drawing.Size(180, 22);
+            this.saveTool.Size = new System.Drawing.Size(133, 22);
             this.saveTool.Text = "Сохранить";
             this.saveTool.Click += new System.EventHandler(this.saveTool_Click);
             // 
@@ -210,6 +213,7 @@
             // 
             // Delayed
             // 
+            this.Delayed.ContextMenuStrip = this.contextMenuDelay;
             this.Delayed.FormattingEnabled = true;
             this.Delayed.Location = new System.Drawing.Point(403, 119);
             this.Delayed.Name = "Delayed";
@@ -248,6 +252,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // contextMenuDelay
+            // 
+            this.contextMenuDelay.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolInPrcD});
+            this.contextMenuDelay.Name = "contextMenuDelay";
+            this.contextMenuDelay.Size = new System.Drawing.Size(181, 48);
+            // 
+            // toolInPrcD
+            // 
+            this.toolInPrcD.Name = "toolInPrcD";
+            this.toolInPrcD.Size = new System.Drawing.Size(180, 22);
+            this.toolInPrcD.Text = "Выполняется";
+            this.toolInPrcD.Click += new System.EventHandler(this.toolInPrcD_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,6 +291,7 @@
             this.menuStrip1.PerformLayout();
             this.contextMenuPlan.ResumeLayout(false);
             this.contextMenuInPrc.ResumeLayout(false);
+            this.contextMenuDelay.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,6 +320,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuInPrc;
         private System.Windows.Forms.ToolStripMenuItem toolDone;
         private System.Windows.Forms.ToolStripMenuItem toolDelayed;
+        private System.Windows.Forms.ContextMenuStrip contextMenuDelay;
+        private System.Windows.Forms.ToolStripMenuItem toolInPrcD;
     }
 }
 
