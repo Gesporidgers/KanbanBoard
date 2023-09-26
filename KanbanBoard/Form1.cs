@@ -25,9 +25,10 @@ namespace KanbanBoard
             FormAdd formAdd = new FormAdd();
             formAdd.ShowDialog();
             string nm = formAdd.getName();
+            if(nm != null) { 
             program.addTask(nm);
             changed = true;
-            UpdAll();
+            UpdAll();}
         }
 
         private void clearTool_Click(object sender, EventArgs e)
