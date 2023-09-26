@@ -20,8 +20,14 @@ namespace KanbanBoard
 
         private void buttonAddPL_Click(object sender, EventArgs e)
         {
-            
-            this.Close();
+            if (richTextBox1.Text != "")
+            {
+                this.Close();
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Поле не может быть пустым!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public string getName()
         {
