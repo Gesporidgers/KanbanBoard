@@ -25,7 +25,7 @@ namespace KanbanBoard
             FormAdd formAdd = new FormAdd();
             formAdd.ShowDialog();
             string nm = formAdd.getName();
-            if(nm != null) { 
+            if(nm != "") { 
             program.addTask(nm);
             changed = true;
             UpdAll();}
